@@ -1,4 +1,5 @@
 var loading = document.getElementById("loading");
+var textareaHandle = document.getElementById('characterCount__textarea');
 
 const showLoading = () => { loading.style.display = "block"; }
 
@@ -45,11 +46,47 @@ const signOff = () => {
 }
 
 const counterFunction = () => { console.log('counter') }
+
 const countdownFunction = () => { console.log('countdown') }
+
 const stopwatchFunction = () => { console.log('stopwatch') }
-const sizeScreenFunction = () => { console.log('sizeScreen') }
-const digitalClockFunction = () => { console.log('digitalClock') }
-const characterCountFunction = () => { console.log('characterCount') }
+
+const sizeScreenFunction = () => {
+  var preview = document.getElementById('size'); 
+  preview.textContent = `${window.innerWidth} x ${window.innerHeight}`;
+}
+
+const digitalClockFunction = () => { 
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+
+  if(hours == 0) {
+    hours = 12;
+  } else if (hours >= 12) {
+    hours = hours - 12;
+    period = 'PM';
+  }
+
+  minutes = (minutes < 10 ? "0" : "") + minutes;
+  seconds = (seconds < 10 ? "0" : "") + seconds;
+
+  var time = hours + ":" + minutes + ":" + seconds + " " + period;
+  document.getElementById("clock").innerHTML = time;
+}
+
+const characterCountFunction = () => { 
+  var result = document.getElementById('characterCount__count');
+  var count = (textareaHandle.value).length;
+  
+  result.textContent = `${count}`;
+}
+
 
 showLoading();
+setInterval(digitalClockFunction, 1000);
+
+window.onresize()
 window.addEventListener('load', hideLoading);
+textareaHandle.addEventListener('input', characterCountFunction)

@@ -1,0 +1,6 @@
+textarea {
+    outline: none;
+    padding: 2px 5px;
+    font-size: var(--font-size-sm);
+    border-color: var(--color-gray-font-active);
+}

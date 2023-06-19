@@ -65,6 +65,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    width: 100%;
 }
 
 .container__dashboard aside ul li:hover {
@@ -86,6 +87,21 @@
     display: none;
     justify-content: center;
     align-items: center;
+}
+
+#digitalClock span, #sizeScreen span {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-font-active);
+}
+
+#characterCount {
+    flex-direction: column;
+    gap: 6px;
+}
+
+#characterCount span {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-font-active);
 }
 
 @media (min-width: 576px){
