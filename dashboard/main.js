@@ -41,7 +41,7 @@ const toggleMenu = (element) => {
 
 const signOff = () => {
   localStorage.removeItem('user')
-  window.location.href = "/";
+  window.location.href = "../index.html";
 }
 
 const counterFunction = () => { console.log('counter') }
