@@ -77,7 +77,7 @@
 
 .container__dashboard .container__results {
     height: 100vh;
-    width: calc(100% - 200px);
+    width: calc(100% - 50px);
 }
 
 .container__dashboard .container__results .result {
@@ -99,5 +99,9 @@
 
     .container__dashboard aside ul li span {
         display: block;
+    }
+
+    .container__dashboard .container__results {
+        width: calc(100% - 200px);
     }
 }
