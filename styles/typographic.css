@@ -1,0 +1,15 @@
+.message {
+    font-size: var(--font-size-xs);
+}
+
+.message--error {
+    color: var(--color-error);
+}
+
+a {
+    color: blue;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+    color: var(--color-gray-font-active);
+}

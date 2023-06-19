@@ -1,0 +1,69 @@
+/* Files CSS Imports */
+@import './layout.css';
+@import './buttons.css';
+@import './typographic.css';
+
+/* General Styles */
+* {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Variables */
+:root {
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-gray-light: #C3C3C3;
+
+    --color-gray-bg: #f7f5f2;
+    --color-gray-font: #524a3ed1;
+    --color-gray-font-active: #1e1919;
+
+    --color-success: #4BB543 ;
+    --color-warning: #FFCC00;
+    --color-error: #FA113D;
+
+    --font-size-xs: 0.8rem;
+    --font-size-sm: 1rem;
+    --font-size-md: 1.5rem;
+    --font-size-lg: 2rem;
+
+    --breakpoints-sm: 576px;
+    --breakpoints-md: 992px;
+
+    --border-radius: 6px;
+}
+
+.loading {
+    background-color: rgba(0, 0, 0, 0.1);
+    display: none;
+    position: fixed;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+}
+
+.loading p {
+    position: absolute;
+    top: 48%;
+    left: 48%
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-gray-bg); 
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-gray-font); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gray-font-active);
+}

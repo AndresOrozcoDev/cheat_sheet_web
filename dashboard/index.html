@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Exclusive web development project template for HTML, CSS and Javascript technologies.">
+
+    <title>Dashboard - Cheat Sheet</title>
+
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.png">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../styles/mobile.css" media="screen and (max-width: 576px)">
+    <link rel="stylesheet" type="text/css" href="../styles/tablet.css" media="screen and (min-width: 576px)">
+    <link rel="stylesheet" type="text/css" href="../styles/desktop.css" media="screen and (min-width: 992px)">
+
+</head>
+<body>
+
+    <main>
+
+        <div class="loading" id="loading">
+            <p>Cargando...</p>
+        </div>
+        
+        <div class="container__dashboard">
+            <aside>
+                <div>
+                    <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px">
+                </div>
+
+                <ul>
+                    <li onclick="toggleMenu(menu1)" title="menu 1">menu 1</li>
+                    <li onclick="toggleMenu(menu2)" title="menu 2">menu 2</li>
+                    <li onclick="toggleMenu(menu3)" title="menu 3">menu 3</li>
+                </ul>
+
+                <input type="button" value="Sign Off" title="Sign Off" onclick="signOff()">
+            </aside>
+
+            <div class="container__results" id="container__results">
+                <div id="menu1" class="result">menu1</div>
+                <div id="menu2" class="result">menu2</div>
+                <div id="menu3" class="result">menu3</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script type="text/javascript" src="./main.js"></script>
+
+</body>
+</html>
