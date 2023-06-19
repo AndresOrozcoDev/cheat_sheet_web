@@ -15,7 +15,7 @@ const loginSubmit = (event) => {
     } else {
         msg.style.display = "none";
         localStorage.setItem('user', values)
-        window.location.href = "dashboard";
+        window.location.href = "dashboard/index.html";
     }
 }
 
