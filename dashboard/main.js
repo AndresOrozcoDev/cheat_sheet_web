@@ -1,5 +1,6 @@
 var loading = document.getElementById("loading");
 var textareaHandle = document.getElementById('characterCount__textarea');
+var valueCounter = 0;
 
 const showLoading = () => { loading.style.display = "block"; }
 
@@ -17,15 +18,6 @@ const toggleMenu = (element) => {
   element.style.display = "flex";
 
   switch (element.id) {
-    case 'counter':
-      counterFunction()
-      break;
-    case 'countdown':
-      countdownFunction()
-      break;
-    case 'stopwatch':
-      stopwatchFunction()
-      break;
     case 'sizeScreen':
       sizeScreenFunction()
       break;
@@ -40,21 +32,36 @@ const toggleMenu = (element) => {
   }
 }
 
+
 const signOff = () => {
   localStorage.removeItem('user')
   window.location.href = "../index.html";
 }
 
-const counterFunction = () => { console.log('counter') }
 
-const countdownFunction = () => { console.log('countdown') }
+const counterFunction = (e) => { 
+  var display = document.getElementById('counter__result');
+  var idBtn = e.target.id
+  switch (idBtn) {
+    case 'increment':
+      valueCounter += 1;
+      break;
+    case 'decrement':
+      valueCounter -= 1;
+      break;
+    default:
+      valueCounter = 0;
+      break;
+  }
+  display.textContent = valueCounter;
+}
 
-const stopwatchFunction = () => { console.log('stopwatch') }
 
 const sizeScreenFunction = () => {
   var preview = document.getElementById('size'); 
   preview.textContent = `${window.innerWidth} x ${window.innerHeight}`;
 }
+
 
 const digitalClockFunction = () => { 
   var now = new Date();
@@ -87,6 +94,5 @@ const characterCountFunction = () => {
 showLoading();
 setInterval(digitalClockFunction, 1000);
 
-window.onresize()
 window.addEventListener('load', hideLoading);
 textareaHandle.addEventListener('input', characterCountFunction)

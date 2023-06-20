@@ -89,7 +89,17 @@
     align-items: center;
 }
 
-#digitalClock span, #sizeScreen span {
+#counter {
+    flex-direction: column;
+    gap: 6px;
+}
+
+#counter div {
+    display: flex !important;
+    gap: 6px;
+}
+
+#counter span, #digitalClock span, #sizeScreen span {
     font-size: var(--font-size-sm);
     color: var(--color-gray-font-active);
 }

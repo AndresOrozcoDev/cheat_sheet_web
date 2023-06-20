@@ -36,14 +36,6 @@
                         <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px">
                         <span>Counter</span>
                     </li>
-                    <li onclick="toggleMenu(countdown)" title="Countdown">
-                        <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px">
-                        <span>Countdown</span>
-                    </li>
-                    <li onclick="toggleMenu(stopwatch)" title="Stopwatch">
-                        <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px">
-                        <span>Stopwatch</span>
-                    </li>
                     <li onclick="toggleMenu(sizeScreen)" title="Size Screen">
                         <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px">
                         <span>Size Screen</span>
@@ -62,19 +54,28 @@
             </aside>
 
             <div class="container__results" id="container__results">
-                <div id="counter" class="result">Counter</div>
-                <div id="countdown" class="result">Countdown</div>
-                <div id="stopwatch" class="result">Stopwatch</div>
+                <div id="counter" class="result">
+                    <p id="counter__result">0</p>
+                    <div>
+                        <input type="button" class="btn btn--primary" onclick="counterFunction(event)" id="decrement" title="-1" value="Decrement" >
+                        <input type="button" class="btn btn--primary" onclick="counterFunction(event)" id="reset" title="0" value="Reset" >
+                        <input type="button" class="btn btn--primary" onclick="counterFunction(event)" id="increment" title="+1" value="Increment" >
+                    </div>
+                </div>
+
                 <div id="sizeScreen" class="result">
                     <span id="size"></span>
                 </div>
+
                 <div id="digitalClock" class="result">
                     <span id="clock"></span>
                 </div>
+
                 <div id="characterCount" class="result">
                     <textarea id="characterCount__textarea"></textarea>
                     <span>Total characters: <span class="paragrah" id="characterCount__count">0</span></span>
                 </div>
+
             </div>
         </div>
 
