@@ -28,29 +28,32 @@
         <div class="container__dashboard">
             <aside>
                 <div>
-                    <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px">
+                    <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px" class="userIcon" >
                 </div>
 
                 <ul>
                     <li onclick="toggleMenu(counter)" title="Counter">
-                        <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px">
+                        <img src="../assets/icons/counter.png" alt="User icon" width="24px" height="24px">
                         <span>Counter</span>
                     </li>
                     <li onclick="toggleMenu(sizeScreen)" title="Size Screen">
-                        <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px">
+                        <img src="../assets/icons/size_screen.png" alt="User icon" width="24px" height="24px">
                         <span>Size Screen</span>
                     </li>
                     <li onclick="toggleMenu(digitalClock)" title="Digital Clock">
-                        <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px">
+                        <img src="../assets/icons/clock.png" alt="User icon" width="24px" height="24px">
                         <span>Digital Clock</span>
                     </li>
                     <li onclick="toggleMenu(characterCount)" title="Character Count">
-                        <img src="../assets/icons/user.png" alt="User icon" width="24px" height="24px">
+                        <img src="../assets/icons/character_counter.png" alt="User icon" width="24px" height="24px">
                         <span>Character Count</span>
                     </li>
                 </ul>
 
-                <input type="button" value="Sign Off" title="Sign Off" onclick="signOff()">
+                <div>
+                    <img src="../assets/icons/sign_in.png" alt="Sign In Icon" width="24px" height="24px" title="Sign In" onclick="signOff()" >
+                    <input type="button" value="Sign Off" title="Sign Off" onclick="signOff()">
+                </div>
             </aside>
 
             <div class="container__results" id="container__results">
