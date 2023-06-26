@@ -27,6 +27,9 @@ const toggleMenu = (element) => {
     case 'characterCount':
       characterCountFunction()
       break;
+    case 'weather':
+      weatherFunction()
+      break;
     default:
       console.log("Opción no válida");
   }
@@ -68,6 +71,7 @@ const digitalClockFunction = () => {
   var hours = now.getHours();
   var minutes = now.getMinutes();
   var seconds = now.getSeconds();
+  var period = 'AM'
 
   if(hours == 0) {
     hours = 12;
@@ -88,6 +92,34 @@ const characterCountFunction = () => {
   var count = (textareaHandle.value).length;
   
   result.textContent = `${count}`;
+}
+
+const weatherFunction = () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition( position => {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      getDataLocation(latitude, longitude)
+    });
+  } else {
+    alert("Location off.");
+  }
+}
+
+const getDataLocation = (latitude, longitude) => {
+  fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Network response was not ok.');
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log('Error:', error.message);
+    });
 }
 
 
