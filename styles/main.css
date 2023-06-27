@@ -31,6 +31,8 @@
     --font-size-md: 1.5rem;
     --font-size-lg: 2rem;
 
+    --font-weigth-bold: 900;
+
     --breakpoints-sm: 576px;
     --breakpoints-md: 992px;
 
@@ -54,6 +56,7 @@
 
 ::-webkit-scrollbar {
     width: 2px;
+    height: 2px;
 }
 
 ::-webkit-scrollbar-track {

@@ -101,6 +101,7 @@ const characterCountFunction = () => {
 
 
 const weatherFunction = () => {
+  showLoading();
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition( position => {
       var latitude = position.coords.latitude;
@@ -114,6 +115,12 @@ const weatherFunction = () => {
 
 
 const getDataLocation = (latitude, longitude) => {
+  var address = document.getElementById('preview-address');
+  var city = document.getElementById('preview-city');
+  var state = document.getElementById('preview-state');
+  var zc = document.getElementById('preview-zc');
+  var country = document.getElementById('preview-country');
+
   fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
     .then((response) => {
       if (response.ok) {
@@ -122,6 +129,11 @@ const getDataLocation = (latitude, longitude) => {
       throw new Error('Network response was not ok.');
     })
     .then((data) => {
+      address.textContent = `${data.address.house_number} ${data.address.road}`;
+      city.textContent = data.address.county;
+      state.textContent = data.address.state;
+      zc.textContent = data.address.postcode;
+      country.textContent = `${data.address.country} (${data.address.country_code})`;
       getDataWeather(data.address.county)
     })
     .catch((error) => {
@@ -140,6 +152,7 @@ const getDataWeather = (city) => {
     })
     .then((data) => {
       console.log(data);
+      hideLoading();
     })
     .catch((error) => {
       console.log('Error:', error.message);
