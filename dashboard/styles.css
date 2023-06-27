@@ -7,7 +7,7 @@
 
 .container__dashboard aside {
     gap: 10px;
-    width: 80px;
+    width: 100px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -88,7 +88,7 @@
 
 .container__dashboard .container__results {
     height: 100vh;
-    width: calc(100% - 80px);
+    width: calc(100% - 100px);
 }
 
 .container__dashboard .container__results .result {
