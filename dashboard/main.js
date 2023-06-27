@@ -1,10 +1,14 @@
+var valueCounter = 0;
+var apiKey = '674b59719e7fbcdb2fc49ca2edd1ab7d';    // https://openweathermap.org/
 var loading = document.getElementById("loading");
 var textareaHandle = document.getElementById('characterCount__textarea');
-var valueCounter = 0;
+
 
 const showLoading = () => { loading.style.display = "block"; }
 
+
 const hideLoading = () => { loading.style.display = "none"; }
+
 
 const toggleMenu = (element) => {
   var containerResults = document.getElementById("container__results");
@@ -87,12 +91,14 @@ const digitalClockFunction = () => {
   document.getElementById("clock").innerHTML = time;
 }
 
+
 const characterCountFunction = () => { 
   var result = document.getElementById('characterCount__count');
   var count = (textareaHandle.value).length;
   
   result.textContent = `${count}`;
 }
+
 
 const weatherFunction = () => {
   if (navigator.geolocation) {
@@ -106,8 +112,26 @@ const weatherFunction = () => {
   }
 }
 
+
 const getDataLocation = (latitude, longitude) => {
   fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Network response was not ok.');
+    })
+    .then((data) => {
+      getDataWeather(data.address.county)
+    })
+    .catch((error) => {
+      console.log('Error:', error.message);
+    });
+}
+
+
+const getDataWeather = (city) => {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -123,8 +147,10 @@ const getDataLocation = (latitude, longitude) => {
 }
 
 
+
 showLoading();
 setInterval(digitalClockFunction, 1000);
+
 
 window.addEventListener('load', hideLoading);
 textareaHandle.addEventListener('input', characterCountFunction)

@@ -6,3 +6,7 @@ const registerSubmit = (event) => {
     localStorage.setItem('user', values);
     window.location.href = "../dashboard";
 }
+
+const goBack = () => {
+    window.location.href = "../index.html";
+}
